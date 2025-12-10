@@ -17,12 +17,13 @@ function ListaAnimais({ pets, onSelectPet }) {
           text: 'Em Análise',
           color: '#FFC107' // AMARELO
         };
-      case 'Adotado':
+      case 'Adotado': {
         const adotanteNome = adotante && adotante.nome ? adotante.nome : '—';
         return {
           text: `Adotado por ${adotanteNome}`,
           color: '#F44336' // VERMELHO
         };
+      }
       default:
         return {
           text: 'Status Desconhecido',
