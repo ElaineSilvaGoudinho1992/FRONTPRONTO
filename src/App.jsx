@@ -29,7 +29,7 @@ function App() {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch('http://localhost:3001/api/pets');
+      const response = await fetch('https://backpronto.onrender.com/api/pets');
       if (!response.ok) throw new Error('Falha ao conectar com o servidor');
       const data = await response.json();
       setListaPets(data);
@@ -45,7 +45,7 @@ function App() {
   const handleCreatePet = async (novoPet) => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:3001/api/pets', {
+      const response = await fetch('https://backpronto.onrender.com/api/pets', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(novoPet)
