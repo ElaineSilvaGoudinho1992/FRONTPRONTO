@@ -14,7 +14,7 @@ function Login({ goToCadastro, onLoginSuccess, title, showBack, goToBack }) {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:3001/api/login', {
+      const response = await fetch('https://backpronto.onrender.com/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, senha })
