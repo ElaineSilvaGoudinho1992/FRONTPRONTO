@@ -72,13 +72,13 @@ function PainelAdmin({ goToCadastroPet, goToHome, fetchPets }) {
         setError(null);
         try {
             // 1. Busca Solicitações de Adoção
-            const adocoesResponse = await fetch('http://localhost:3001/api/adocoes');
+            const adocoesResponse = await fetch('https://backpronto.onrender.com/api/adocoes');
             if (!adocoesResponse.ok) throw new Error('Falha ao buscar solicitações');
             const adocoesData = await adocoesResponse.json();
             setAdocoes(adocoesData);
 
             // 2. Busca Todos os Pets (necessário para a lista de exclusão)
-            const petsResponse = await fetch('http://localhost:3001/api/pets'); 
+            const petsResponse = await fetch('https://backpronto.onrender.com/api/pets'); 
             if (!petsResponse.ok) throw new Error('Falha ao buscar pets');
             const petsData = await petsResponse.json();
             setPets(petsData);
@@ -103,7 +103,7 @@ function PainelAdmin({ goToCadastroPet, goToHome, fetchPets }) {
         }
 
         try {
-            const response = await fetch(`http://localhost:3001/api/pets/${petId}`, {
+            const response = await fetch(`https://backpronto.onrender.com/api/pets/${petId}`, {
                 method: 'DELETE',
             });
             
@@ -124,7 +124,7 @@ function PainelAdmin({ goToCadastroPet, goToHome, fetchPets }) {
     // Função para atualizar o status da Adoção (CHAMADA API: PUT /api/adocoes/:id)
     const handleUpdateAdocaoStatus = async (adocaoId, petId, novoStatus) => {
         try {
-            const response = await fetch(`http://localhost:3001/api/adocoes/${adocaoId}`, {
+            const response = await fetch(`https://backpronto.onrender.com/api/adocoes/${adocaoId}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ status: novoStatus, petId: petId })
